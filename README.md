@@ -1,12 +1,20 @@
 # WeChat Relationship Toolkit
 
-一个本地优先的微信记忆整理工具，用图谱帮你重新看见关系和信息沉淀。
+一个本地优先的微信记忆整理实验工具，用图谱帮你重新看见关系和信息沉淀。
 
-A local-first WeChat memory tool that helps you rediscover relationships and information through graphs.
+A local-first experimental WeChat memory tool that helps you rediscover relationships and information through graphs.
 
 ![关系图谱交互演示](docs/assets/relationship-graph-demo.gif)
 
 把散落在微信里的聊天、联系人和群组，整理成可导出、可分析、可视化的个人关系图谱。默认使用合成 demo 数据演示；真实聊天记录不会进入仓库，也不会默认上传到任何外部 API。
+
+## Risk Notice
+
+This project is an experimental local data tool. WeChat data extraction may violate platform expectations, trigger client or account risk controls, or cause temporary login / verification issues.
+
+本项目是实验性质的本地数据工具。真实微信数据导出、数据库读取、key 探测、批量扫描等行为可能触发微信客户端或账号风控，导致登录验证、功能限制或其他账号风险。请优先使用 demo 数据；真实微信数据导出属于高级用法，风险自担。
+
+Do not run extraction repeatedly. Do not run key probing or database scanning while you are unsure what the tool is doing. Prefer official WeChat backup / migration features for account safety.
 
 ![微信导出 UI](docs/assets/export-ui-demo.png)
 
@@ -22,12 +30,13 @@ A local-first WeChat memory tool that helps you rediscover relationships and inf
 - 先导出，再处理，再可视化，三层分开。
 - 关系判断只做启发式分析，不把标签当成事实。
 - AI 分析默认关闭，需要你显式配置 API key 才会启用。
+- 真实微信数据导出存在账号风险，默认推荐只跑 demo。
 
 ## 三层结构
 
 ```text
 apps/
-  export-ui/              # 本地微信导出界面
+  export-ui/              # 本地微信导出界面，高风险高级用法
   relationship-graph/     # 关系图谱前端，可选 Gemini 分析
 
 packages/
@@ -43,20 +52,32 @@ docs/
   assets/                 # README 演示截图和 GIF
 ```
 
-## 快速开始
+## 快速开始：只跑 demo
 
-### 1. 微信导出层
+推荐先只运行图谱前端。它默认加载 `examples/demo-data/relationship-graph.demo.json`，不会读取真实微信数据。
+
+```powershell
+cd apps\relationship-graph
+npm install --registry=https://registry.npmjs.org
+npm run dev
+```
+
+打开 `http://localhost:3000` 查看 demo 关系图谱。
+
+## 高级用法：真实微信导出
+
+真实微信导出可能触发微信风控。请在理解风险后再使用，不要反复运行，不要在账号状态异常时运行。
 
 ```powershell
 npx @jackwener/wx-cli init --force
 .\packages\wechat-export\start_export_ui.ps1
 ```
 
-打开 `http://127.0.0.1:4789` 后，点击刷新会话，再指定联系人导出 Markdown、TXT、JSON 或 YAML。
+打开 `http://127.0.0.1:4789` 后，可以刷新会话，再指定联系人导出 Markdown、TXT、JSON 或 YAML。
 
 没有真实会话文件时，导出 UI 会显示合成 demo 会话，方便预览界面。
 
-### 2. 数据处理层
+## 数据处理层
 
 ```powershell
 python .\packages\relationship-engine\build_relationship_graph.py
@@ -71,16 +92,6 @@ output/gemini_relationship_materials/edges.csv
 ```
 
 这些真实输出默认被 `.gitignore` 排除，不要提交。
-
-### 3. 前端展示层
-
-```powershell
-cd apps\relationship-graph
-npm install --registry=https://registry.npmjs.org
-npm run dev
-```
-
-默认加载 `examples/demo-data/relationship-graph.demo.json`，所以首次运行不会读取任何真实微信数据。
 
 ## Gemini/API 接入
 
@@ -101,6 +112,7 @@ PORT=3000
 - README 图片只用 demo 数据截图。
 - AI 分析只发送图谱摘要，不发送原始聊天全文。
 - 关系标签是启发式结果，只能作为观察线索，不能当作事实判断。
+- 真实微信导出可能触发账号风控，使用者自行承担风险。
 
 开源前检查清单见 [docs/PRIVACY.md](docs/PRIVACY.md)。
 

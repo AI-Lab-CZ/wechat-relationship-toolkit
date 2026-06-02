@@ -108,7 +108,7 @@ PORT=3000
 
 ```powershell
 git status --short
-rg "wxid_|gh_|all_keys|db_storage|手机号|真实姓名|抖音 codex|汇星|GEMINI_API_KEY=" .
+rg "wxid_|gh_|all_keys|db_storage|手机号|真实姓名|真实群名|真实项目名|GEMINI_API_KEY=" .
 ```
 
 如果以上搜索命中真实个人数据，先移到仓库外的私有包裹再提交。

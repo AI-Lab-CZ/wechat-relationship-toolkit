@@ -20,11 +20,7 @@ exports/
 .env
 ```
 
-当前整理出的真实数据包裹位于：
-
-```text
-C:\Users\59363\Documents\微信信息处理-private-20260603\
-```
+真实数据包裹应放在仓库目录之外，例如同级的私有目录。不要把本机用户名、绝对路径或私有目录名写进公开文档。
 
 ## README 图片规则
 
@@ -42,7 +38,7 @@ docs/assets/relationship-graph-demo.png
 
 ```powershell
 git status --short
-rg "wxid_|gh_|all_keys|db_storage|手机号|真实姓名|抖音 codex|汇星|GEMINI_API_KEY=" .
+rg "wxid_|gh_|all_keys|db_storage|手机号|真实姓名|真实群名|真实项目名|GEMINI_API_KEY=" .
 ```
 
 如果命中真实姓名、手机号、wxid、群名、业务名或聊天内容，先移出仓库再提交。

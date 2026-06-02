@@ -1,14 +1,27 @@
 # WeChat Relationship Toolkit
 
-本项目是一个本地优先的微信信息处理玩具：先导出聊天记录，再把会话整理成关系图谱，最后用前端做可视化和可选 AI 分析。
+一个本地优先的微信记忆整理工具，用图谱帮你重新看见关系和信息沉淀。
 
-> README 截图和示例数据全部来自 `examples/demo-data/`，不包含真实微信联系人、聊天内容、wxid 或数据库 key。
+A local-first WeChat memory tool that helps you rediscover relationships and information through graphs.
 
 ![关系图谱交互演示](docs/assets/relationship-graph-demo.gif)
+
+把散落在微信里的聊天、联系人和群组，整理成可导出、可分析、可视化的个人关系图谱。默认使用合成 demo 数据演示；真实聊天记录不会进入仓库，也不会默认上传到任何外部 API。
 
 ![微信导出 UI](docs/assets/export-ui-demo.png)
 
 ![关系图谱 UI](docs/assets/relationship-graph-demo.png)
+
+## 为什么做这个
+
+微信里沉淀了大量关系、业务、项目和生活记忆，但它们通常被锁在聊天列表里，很难被重新整理和观察。
+
+这个项目尝试用一种克制的方式处理这些数据：
+
+- 本地优先，真实数据默认只留在你的电脑上。
+- 先导出，再处理，再可视化，三层分开。
+- 关系判断只做启发式分析，不把标签当成事实。
+- AI 分析默认关闭，需要你显式配置 API key 才会启用。
 
 ## 三层结构
 
@@ -27,7 +40,7 @@ examples/
 docs/
   API.md                  # API 接入说明
   PRIVACY.md              # 隐私与开源检查清单
-  assets/                 # README 演示截图
+  assets/                 # README 演示截图和 GIF
 ```
 
 ## 快速开始
@@ -87,7 +100,7 @@ PORT=3000
 - 不提交 `output/`、`.wx-cli`、真实聊天记录、真实联系人、数据库、日志、zip。
 - README 图片只用 demo 数据截图。
 - AI 分析只发送图谱摘要，不发送原始聊天全文。
-- 关系标签是启发式结果，只能作为玩具式观察，不能当作事实判断。
+- 关系标签是启发式结果，只能作为观察线索，不能当作事实判断。
 
 开源前检查清单见 [docs/PRIVACY.md](docs/PRIVACY.md)。
 

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>微信记录导出</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">微</div>
+          <div>
+            <h1>微信记录导出</h1>
+            <p id="sessionCount">载入中</p>
+          </div>
+        </div>
+        <div class="search-row">
+          <input id="searchInput" type="search" placeholder="搜索会话名" autocomplete="off" />
+          <button id="refreshButton" class="icon-button" title="刷新真实会话">↻</button>
+        </div>
+        <div id="sessionList" class="session-list"></div>
+      </aside>
+
+      <section class="workspace">
+        <header class="topbar">
+          <div>
+            <div class="eyebrow">当前对象</div>
+            <h2 id="selectedTitle">请选择会话</h2>
+          </div>
+          <button id="exportButton" class="primary-button" disabled>导出</button>
+        </header>
+
+        <section class="controls">
+          <label>
+            <span>格式</span>
+            <select id="formatSelect">
+              <option value="markdown">Markdown</option>
+              <option value="txt">TXT</option>
+              <option value="json">JSON</option>
+              <option value="yaml">YAML</option>
+            </select>
+          </label>
+          <label>
+            <span>条数</span>
+            <input id="limitInput" type="number" min="1" max="100000" value="10000" />
+          </label>
+          <label>
+            <span>开始日期</span>
+            <input id="sinceInput" type="date" />
+          </label>
+          <label>
+            <span>结束日期</span>
+            <input id="untilInput" type="date" />
+          </label>
+        </section>
+
+        <section class="details">
+          <div class="detail-line">
+            <span>用户名</span>
+            <strong id="selectedUsername">-</strong>
+          </div>
+          <div class="detail-line">
+            <span>类型</span>
+            <strong id="selectedType">-</strong>
+          </div>
+          <div class="detail-line">
+            <span>最近互动</span>
+            <strong id="selectedTime">-</strong>
+          </div>
+          <div class="summary" id="selectedSummary">-</div>
+        </section>
+
+        <section class="exports-panel">
+          <div class="panel-head">
+            <h3>最近导出</h3>
+            <button id="reloadExports" class="ghost-button">刷新</button>
+          </div>
+          <div id="exportsList" class="exports-list"></div>
+        </section>
+
+        <pre id="statusBox" class="status-box">就绪。没有真实会话文件时会显示演示数据。</pre>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

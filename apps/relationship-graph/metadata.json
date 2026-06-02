@@ -1,0 +1,6 @@
+{
+  "name": "WeChat Relationship Graph",
+  "description": "Interactive relationship visualization of WeChat contacts based on transactional heuristic value, emotional content (wetness), and AI-driven connections mapping.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

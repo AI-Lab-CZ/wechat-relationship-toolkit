@@ -1,0 +1,10 @@
+id,label,type,category,value_score,wetness,intimacy,business_value,message_count,last_active,confidence,summary
+me,我,self,self,100,100,100,100,0,,1,中心节点。
+demo_customer_001,林远航,person,customer,92,32,46,96,186,2026-06-02,0.82,林远航被样本规则归为客户倾向。
+demo_business_group_001,南山跨境小组,group,business_group,86,61,68,88,312,2026-06-02,0.72,南山跨境小组被样本规则归为业务群倾向。
+demo_brother_001,周小北,person,brother,74,83,79,24,148,2026-06-01,0.8,周小北被样本规则归为朋友兄弟倾向。
+demo_romance_001,许晴,person,romance,69,91,88,10,96,2026-05-30,0.64,许晴被样本规则归为亲密关系倾向。
+demo_family_001,李阿姨,person,family,71,87,84,12,121,2026-06-01,0.78,李阿姨被样本规则归为家人亲属倾向。
+demo_supplier_001,蓝海供应链,person,supplier,81,24,37,86,89,2026-05-29,0.76,蓝海供应链被样本规则归为供应商服务商倾向。
+demo_weak_001,陈一鸣,person,weak,33,18,24,22,7,2026-04-18,0.48,陈一鸣样本较少被归为普通弱关系倾向。
+demo_group_001,周末运动群,group,group,57,75,66,18,204,2026-06-01,0.69,周末运动群被样本规则归为群聊倾向。

@@ -1,0 +1,9 @@
+source,target,relation,relation_label,strength,wetness,value_score,business_value,message_count,confidence
+me,demo_customer_001,customer,客户,86,32,92,96,186,0.82
+me,demo_business_group_001,business_group,业务群,90,61,86,88,312,0.72
+me,demo_brother_001,brother,朋友兄弟,76,83,74,24,148,0.8
+me,demo_romance_001,romance,亲密关系,68,91,69,10,96,0.64
+me,demo_family_001,family,家人亲属,72,87,71,12,121,0.78
+me,demo_supplier_001,supplier,供应商/服务商,66,24,81,86,89,0.76
+me,demo_weak_001,weak,普通/弱关系,28,18,33,22,7,0.48
+me,demo_group_001,group,群聊,73,75,57,18,204,0.69
